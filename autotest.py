@@ -46,9 +46,23 @@ def test3():
     return 1
 
 
+def test4():
+    with Image.open("cat_test.png") as input_file:
+        ans = input_file.convert("L")
+        input_image_arr = np.asarray(input_file)
+        output_image_arr = (input_image_arr * np.array([0.299, 0.587, 0.114])).sum(axis=2)
+        if np.max(np.abs(ans - output_image_arr)) < 1:
+            print("TEST 4: Correct")
+            return 1
+        else:
+            print("TEST 4: WRONG")
+            return 0
+
+
 def Autotest():
     print("Testing in progreess")
     test1()
     test2()
     test3()
+    test4()
     print("Testing completed")
