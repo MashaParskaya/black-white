@@ -2,6 +2,7 @@ import sys
 import argparse
 from PIL import Image
 import numpy as np
+from autotest import Autotest
 
 
 def main():
@@ -27,4 +28,5 @@ def main():
 
 
 if __name__ == "__main__":
+    Autotest()
     main()
